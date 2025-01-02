@@ -30,9 +30,9 @@ if 'cloudinary_images' not in st.session_state:
 # Load environment variables and configure Cloudinary
 load_dotenv()
 cloudinary.config(
-    cloud_name=os.getenv('CLOUDINARY_CLOUD_NAME'),
-    api_key=os.getenv('CLOUDINARY_API_KEY'),
-    api_secret=os.getenv('CLOUDINARY_API_SECRET')
+    cloud_name=st.secrets["cloudinary"]["CLOUDINARY_CLOUD_NAME"],
+    api_key=st.secrets["cloudinary"]["CLOUDINARY_API_KEY"],
+    api_secret=st.secrets["cloudinary"]["CLOUDINARY_API_SECRET"]
 )
 
 def create_requests_session(retries=3, backoff_factor=0.3, status_forcelist=(500, 502, 504)):
