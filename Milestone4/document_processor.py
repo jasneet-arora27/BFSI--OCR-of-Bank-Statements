@@ -10,7 +10,7 @@ from together import Together
 class DocumentProcessor:
     def __init__(self):
         self.model = "meta-llama/Llama-3.2-11B-Vision-Instruct-Turbo"
-        self.client = Together()
+        self.client = Together(api_key=st.secrets["together"]["TOGETHER_API_KEY"])
 
     def encode_image(self, image_path):
         try:
